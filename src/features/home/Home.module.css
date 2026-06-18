@@ -1,0 +1,375 @@
+.homeWrapper {
+  background-color: #DED9DF;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: clip;
+  position: relative;
+}
+
+.heroSection {
+  /* Mobile padding kam ki taaki content jaldi dikhe */
+  padding-top: 100px;
+  position: relative;
+  padding-bottom: 6rem;
+}
+@media (min-width: 1024px) {
+  .heroSection {
+    padding-top: 140px;
+    padding-bottom: 10rem;
+  }
+}
+.heroSection .heroContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Mobile gap reduced */
+  position: relative;
+  z-index: 10;
+}
+@media (min-width: 1024px) {
+  .heroSection .heroContainer {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+}
+.heroSection {
+  /* --- LEFT COLUMN --- */
+}
+.heroSection .imageCol {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 1rem; /* Mobile padding */
+}
+@media (min-width: 1024px) {
+  .heroSection .imageCol {
+    padding: 2rem;
+  }
+}
+.heroSection .imageCol .imageWrapper {
+  position: relative;
+  width: 100%;
+  /* Mobile ke liye main image wrapper ko shrink kiya */
+  max-width: 280px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .heroSection .imageCol .imageWrapper {
+    max-width: 350px;
+  }
+}
+@media (min-width: 1024px) {
+  .heroSection .imageCol .imageWrapper {
+    max-width: 410px;
+    margin: 0;
+  }
+}
+.heroSection .imageCol .imageWrapper .mainPizza {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: drop-shadow(20px 30px 25px rgba(0, 0, 0, 0.35));
+}
+.heroSection .imageCol .imageWrapper .scatterItem {
+  position: absolute;
+  filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.25));
+  z-index: -1;
+}
+.heroSection .imageCol .imageWrapper {
+  /* Scatter items ko percentage (%) me convert kiya taaki phone pe bahar na bhagein */
+}
+.heroSection .imageCol .imageWrapper .pos1 {
+  width: 70%;
+  top: -12%;
+  left: -25%;
+  transform: rotate(-25deg);
+}
+.heroSection .imageCol .imageWrapper .pos2 {
+  width: 30%;
+  top: 25%;
+  right: -22%;
+  transform: rotate(-20deg);
+}
+.heroSection .imageCol .imageWrapper .pos3 {
+  width: 30%;
+  bottom: -15%;
+  left: -10%;
+  z-index: 2;
+}
+.heroSection .imageCol .imageWrapper .pos4 {
+  width: 50%;
+  top: 40%;
+  right: -30%;
+  transform: rotate(-2deg);
+}
+.heroSection .imageCol .imageWrapper .pos5 {
+  width: 30%;
+  bottom: -20%;
+  left: 5%;
+  transform: rotate(-15deg);
+  z-index: 1;
+}
+.heroSection {
+  /* --- RIGHT COLUMN --- */
+}
+.heroSection .contentCol {
+  flex: 1;
+  position: relative;
+  padding: 0 1rem; /* Prevent touching edges on phone */
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol {
+    padding: 0;
+  }
+}
+.heroSection .contentCol .findFavBadge {
+  position: absolute;
+  top: -30px;
+  right: 0px; /* Mobile pe screen ke andar khiska liya */
+  background-color: #F5B041;
+  /* Mobile size chota kiya overlap rokne ke liye */
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(245, 176, 65, 0.4);
+  transform-origin: top center;
+  animation: swingBadge 4s ease-in-out infinite;
+  z-index: 5; /* Text ke upar float karega nicely */
+}
+@media (min-width: 768px) {
+  .heroSection .contentCol .findFavBadge {
+    width: 120px;
+    height: 120px;
+    top: -35px;
+    right: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .findFavBadge {
+    width: 140px;
+    height: 140px;
+    top: -40px;
+    right: 20px;
+    box-shadow: 0 15px 30px rgba(245, 176, 65, 0.4);
+  }
+}
+.heroSection .contentCol .findFavBadge .badgeTop {
+  font-family: "Dancing Script", cursive;
+  color: #3E2312;
+  font-size: 1.1rem; /* Mobile font */
+  font-weight: 700;
+  margin-bottom: -2px;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .findFavBadge .badgeTop {
+    font-size: 1.6rem;
+    margin-bottom: -5px;
+  }
+}
+.heroSection .contentCol .findFavBadge .badgeBottom {
+  font-family: "Dancing Script", cursive;
+  color: #3E2312;
+  font-size: 1.4rem; /* Mobile font */
+  font-weight: 800;
+  line-height: 1;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .findFavBadge .badgeBottom {
+    font-size: 2.2rem;
+  }
+}
+.heroSection .contentCol .titleGroup {
+  margin-bottom: 1rem;
+}
+.heroSection .contentCol .titleGroup .scriptTitle {
+  font-family: "Dancing Script", cursive;
+  color: #3E2312;
+  font-size: 3.2rem; /* Scaled down for mobile */
+  display: block;
+  line-height: 1;
+  margin-bottom: -5px;
+  transform: rotate(-2deg);
+}
+@media (min-width: 768px) {
+  .heroSection .contentCol .titleGroup .scriptTitle {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .titleGroup .scriptTitle {
+    font-size: 4.5rem;
+  }
+}
+.heroSection .contentCol .titleGroup .heavyTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 4.2rem; /* Scaled down to prevent splitting words */
+  color: #3E2312;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-transform: capitalize;
+}
+@media (min-width: 768px) {
+  .heroSection .contentCol .titleGroup .heavyTitle {
+    font-size: 5.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .titleGroup .heavyTitle {
+    font-size: 7rem;
+    letter-spacing: -2px;
+  }
+}
+.heroSection .contentCol .ratings {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .ratings {
+    margin-bottom: 2.5rem;
+  }
+}
+.heroSection .contentCol .ratings .stars {
+  display: flex;
+  gap: 0.2rem;
+}
+.heroSection .contentCol .ratings .stars .starIcon {
+  color: #F5B041;
+  font-size: 1.1rem;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .ratings .stars .starIcon {
+    font-size: 1.3rem;
+  }
+}
+.heroSection .contentCol .ratings .ratingText {
+  color: #555;
+  font-size: 1rem;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .ratings .ratingText {
+    font-size: 1.1rem;
+  }
+}
+.heroSection .contentCol .commentBox {
+  background: #FFFFFF;
+  padding: 1.2rem; /* Slimmer padding for mobile */
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .commentBox {
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    max-width: 95%;
+  }
+}
+.heroSection .contentCol .commentBox .commentAuthor {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  color: #3E2312;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .commentBox .commentAuthor {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+}
+.heroSection .contentCol .commentBox .commentText {
+  color: #444;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+@media (min-width: 1024px) {
+  .heroSection .contentCol .commentBox .commentText {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+.heroSection .contentCol .btnGroup {
+  display: flex;
+  flex-direction: column; /* MOBILE: Stack the buttons */
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .heroSection .contentCol .btnGroup {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+.heroSection .contentCol .btnGroup button {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%; /* Full width on mobile */
+}
+@media (min-width: 768px) {
+  .heroSection .contentCol .btnGroup button {
+    width: auto;
+    padding: 0.9rem 2.5rem;
+  }
+}
+.heroSection .contentCol .btnGroup .orderBtn {
+  background-color: #F5B041;
+  color: #3E2312;
+  border: none;
+  box-shadow: 0 5px 15px rgba(245, 176, 65, 0.4);
+}
+.heroSection .contentCol .btnGroup .orderBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(245, 176, 65, 0.5);
+}
+.heroSection .contentCol .btnGroup .exploreBtn {
+  background-color: transparent;
+  color: #3E2312;
+  border: 2px solid #D0D0D0;
+}
+.heroSection .contentCol .btnGroup .exploreBtn:hover {
+  border-color: #3E2312;
+}
+.heroSection .waveContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 5;
+}
+.heroSection .waveContainer svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+}
+
+@keyframes swingBadge {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}/*# sourceMappingURL=Home.module.css.map */

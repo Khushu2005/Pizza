@@ -1,0 +1,261 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.homeWrapper {
+  background-color: #DED9DF;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: clip;
+  position: relative; 
+}
+
+.heroSection {
+  /* Mobile padding kam ki taaki content jaldi dikhe */
+  padding-top: 100px; 
+  position: relative; 
+  padding-bottom: 6rem; 
+
+  @include laptop {
+    padding-top: 140px;
+    padding-bottom: 10rem;
+  }
+
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Mobile gap reduced */
+    position: relative;
+    z-index: 10;
+
+    @include laptop {
+      flex-direction: row;
+      align-items: center;
+      gap: 4rem;
+    }
+  }
+
+  /* --- LEFT COLUMN --- */
+  .imageCol {
+    flex: 1;
+    position: relative;
+    @include flex-center;
+    z-index: 10;
+    padding: 1rem; /* Mobile padding */
+
+    @include laptop { padding: 2rem; }
+
+    .imageWrapper {
+      position: relative;
+      width: 100%;
+      /* Mobile ke liye main image wrapper ko shrink kiya */
+      max-width: 280px; 
+      margin: 0 auto;
+      
+      @include tablet { max-width: 350px; }
+      @include laptop { max-width: 410px; margin: 0; }
+      
+      .mainPizza {
+        width: 100%;
+        aspect-ratio: 1 / 1; 
+        object-fit: contain;
+        filter: drop-shadow(20px 30px 25px rgba(0,0,0,0.35)); 
+      }
+
+      .scatterItem {
+        position: absolute;
+        filter: drop-shadow(0 15px 20px rgba(0,0,0,0.25));
+        z-index: -1; 
+      }
+
+      /* Scatter items ko percentage (%) me convert kiya taaki phone pe bahar na bhagein */
+      .pos1 { width: 70%; top: -12%; left: -25%; transform: rotate(-25deg); }
+      .pos2 { width: 30%; top: 25%; right: -22%; transform: rotate(-20deg); }
+      .pos3 { width: 30%; bottom: -15%; left: -10%; z-index: 2; }
+      .pos4 { width: 50%; top: 40%; right: -30%; transform: rotate(-2deg); }
+      .pos5 { width: 30%; bottom: -20%; left: 5%; transform: rotate(-15deg); z-index: 1; }
+    }
+  }
+
+  /* --- RIGHT COLUMN --- */
+  .contentCol {
+    flex: 1;
+    position: relative;
+    padding: 0 1rem; /* Prevent touching edges on phone */
+
+    @include laptop { padding: 0; }
+
+    .findFavBadge {
+      position: absolute;
+      top: -30px;
+      right: 0px; /* Mobile pe screen ke andar khiska liya */
+      background-color: $color-orange;
+      /* Mobile size chota kiya overlap rokne ke liye */
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      @include flex-center;
+      flex-direction: column;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(245, 176, 65, 0.4);
+      transform-origin: top center;
+      animation: swingBadge 4s ease-in-out infinite;
+      z-index: 5; /* Text ke upar float karega nicely */
+
+      @include tablet { width: 120px; height: 120px; top: -35px; right: 10px; }
+      @include laptop { width: 140px; height: 140px; top: -40px; right: 20px; box-shadow: 0 15px 30px rgba(245, 176, 65, 0.4); }
+
+      .badgeTop { 
+        font-family: $font-cursive; 
+        color: $color-dark-brown; 
+        font-size: 1.1rem; /* Mobile font */
+        font-weight: 700; 
+        margin-bottom: -2px;
+
+        @include laptop { font-size: 1.6rem; margin-bottom: -5px; }
+      }
+      .badgeBottom { 
+        font-family: $font-cursive; 
+        color: $color-dark-brown; 
+        font-size: 1.4rem; /* Mobile font */
+        font-weight: 800; 
+        line-height: 1; 
+
+        @include laptop { font-size: 2.2rem; }
+      }
+    }
+
+    .titleGroup {
+      margin-bottom: 1rem;
+
+      .scriptTitle {
+        font-family: $font-cursive;
+        color: $color-dark-brown;
+        font-size: 3.2rem; /* Scaled down for mobile */
+        display: block;
+        line-height: 1; 
+        margin-bottom: -5px; 
+        transform: rotate(-2deg); 
+
+        @include tablet { font-size: 4rem; }
+        @include laptop { font-size: 4.5rem; }
+      }
+
+      .heavyTitle {
+        font-family: $font-heavy;
+        font-size: 4.2rem; /* Scaled down to prevent splitting words */
+        color: $color-dark-brown; 
+        line-height: 1; 
+        font-weight: 900;
+        letter-spacing: -1px;
+        text-transform: capitalize;
+
+        @include tablet { font-size: 5.5rem; }
+        @include laptop { font-size: 7rem; letter-spacing: -2px; }
+      }
+    }
+
+    .ratings {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      @include laptop { margin-bottom: 2.5rem; }
+
+      .stars {
+        display: flex;
+        gap: 0.2rem;
+        .starIcon { color: $color-orange; font-size: 1.1rem; @include laptop { font-size: 1.3rem; } }
+      }
+      .ratingText { color: #555; font-size: 1rem; @include laptop { font-size: 1.1rem; } }
+    }
+
+    .commentBox {
+      background: $color-bg-card;
+      padding: 1.2rem; /* Slimmer padding for mobile */
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-soft;
+      margin-bottom: 2rem;
+      max-width: 100%;
+
+      @include laptop { padding: 2rem; margin-bottom: 2.5rem; max-width: 95%; }
+
+      .commentAuthor {
+        font-family: $font-heavy;
+        font-weight: 800;
+        color: $color-dark-brown;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+
+        @include laptop { font-size: 0.95rem; margin-bottom: 0.8rem; }
+      }
+
+      .commentText {
+        color: #444;
+        line-height: 1.5;
+        font-size: 0.9rem;
+        font-weight: 500;
+
+        @include laptop { font-size: 1rem; line-height: 1.6; }
+      }
+    }
+
+    .btnGroup {
+      display: flex;
+      flex-direction: column; /* MOBILE: Stack the buttons */
+      gap: 1rem;
+
+      @include tablet { flex-direction: row; gap: 1.5rem; }
+
+      button {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-family: $font-heavy;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: $transition-smooth;
+        width: 100%; /* Full width on mobile */
+        
+        @include tablet { width: auto; padding: 0.9rem 2.5rem; }
+      }
+
+      .orderBtn {
+        background-color: $color-orange;
+        color: $color-dark-brown;
+        border: none;
+        box-shadow: 0 5px 15px rgba(245, 176, 65, 0.4);
+        &:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(245, 176, 65, 0.5); }
+      }
+
+      .exploreBtn {
+        background-color: transparent;
+        color: $color-dark-brown;
+        border: 2px solid #D0D0D0;
+        &:hover { border-color: $color-dark-brown; }
+      }
+    }
+  }
+
+  .waveContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0; 
+    z-index: 5;
+    
+    svg {
+      display: block;
+      width: 100%;
+      height: auto; 
+      max-height: 180px; 
+    }
+  }
+}
+
+@keyframes swingBadge {
+  0% { transform: rotate(-10deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-10deg); }
+}

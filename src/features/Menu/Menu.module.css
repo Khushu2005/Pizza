@@ -1,0 +1,248 @@
+.menuPageWrapper {
+  background-color: #DED9DF; /* Tera grey wave color */
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: clip;
+  padding-top: 120px;
+  padding-bottom: 6rem;
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- HUGE BOLD HEADER (As requested) --- */
+.headerSection {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.headerSection .heavyTitle {
+  font-family: "Playfair Display", serif; /* Changed to heavy blocky font */
+  font-size: 5rem;
+  color: #3E2312;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 1024px) {
+  .headerSection .heavyTitle {
+    font-size: 8rem;
+    letter-spacing: 5px;
+  }
+}
+.headerSection .subText {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  color: rgba(62, 35, 18, 0.7);
+  font-weight: 500;
+}
+
+/* --- TABS --- */
+.tabsContainer {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 0.5rem 1rem 1rem 1rem;
+  margin-bottom: 3rem;
+  scrollbar-width: none;
+}
+.tabsContainer::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .tabsContainer {
+    justify-content: center;
+    padding: 0.5rem 0 1rem 0;
+  }
+}
+.tabsContainer .tabBtn {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: 2px solid #3E2312;
+  background: transparent;
+  color: #3E2312;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.tabsContainer .tabBtn:hover {
+  background: rgba(62, 35, 18, 0.1);
+}
+.tabsContainer .tabBtn.activeTab {
+  background: #3E2312;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(62, 35, 18, 0.3);
+  transform: translateY(-2px);
+}
+
+/* --- GRID --- */
+.menuGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem 3rem; /* Y gap badhaya taaki image fit ho sake */
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .menuGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .menuGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6rem 2.5rem;
+  }
+}
+
+/* --- CARDS --- */
+.menuCard {
+  background: #ffffff;
+  border-radius: 40px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  margin-top: 70px;
+  transition: box-shadow 0.3s ease;
+}
+.menuCard:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+.menuCard:hover .imageWrapper img {
+  transform: scale(1.08) rotate(5deg);
+}
+.menuCard {
+  /* IMAGE FULLY VISIBLE FIX */
+}
+.menuCard .imageWrapper {
+  position: absolute;
+  top: -80px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  background: #f8f8f8;
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Centers image inside circle */
+}
+.menuCard .imageWrapper img {
+  width: 100%;
+  height: 100%;
+  /* FIX: Changed from cover to contain & added padding so it doesn't crop */
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 10px;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.menuCard .cardInfo {
+  margin-top: 70px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.menuCard .cardInfo .categoryBadge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #F5B041;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.menuCard .cardInfo .itemName {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  color: #3E2312;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.menuCard .cardInfo .itemDesc {
+  font-size: 0.85rem;
+  color: rgba(62, 35, 18, 0.7);
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.menuCard .cardInfo {
+  /* SIZE SELECTOR TOGGLES */
+}
+.menuCard .cardInfo .sizeSelector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background: #f5f5f5;
+  padding: 0.3rem;
+  border-radius: 50px;
+}
+.menuCard .cardInfo .sizeSelector .sizeBtn {
+  background: transparent;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.menuCard .cardInfo .sizeSelector .sizeBtn.activeSize {
+  background: #F5B041;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(245, 176, 65, 0.3);
+}
+.menuCard .cardInfo .priceRow {
+  margin-bottom: 1.5rem;
+}
+.menuCard .cardInfo .priceRow .price {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  color: #3E2312;
+  line-height: 1;
+}
+.menuCard .cardInfo .orderBtn {
+  width: 100%;
+  padding: 1rem;
+  background: #3E2312; /* Premium dark look for CTA */
+  color: #ffffff;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(62, 35, 18, 0.3);
+}
+.menuCard .cardInfo .orderBtn:hover {
+  background: #F5B041;
+  color: #3E2312;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(245, 176, 65, 0.3);
+}
+.menuCard .cardInfo .orderBtn .btnIcon {
+  font-size: 1.2rem;
+}/*# sourceMappingURL=Menu.module.css.map */

@@ -1,0 +1,175 @@
+.exploreSection {
+  background-color: #DED9DF;
+  padding: 4rem 0 8rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.exploreContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.sectionHeader .scriptText {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.5rem;
+  color: #3E2312;
+  display: block;
+  line-height: 0.8;
+  margin-bottom: -5px;
+  transform: rotate(-2deg);
+}
+.sectionHeader .heavyText {
+  font-family: "Poppins", sans-serif;
+  font-size: 4.5rem;
+  color: #3E2312;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.sectionHeader .subText {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- THE CLEAN CARDS GRID --- */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6rem 2rem;
+}
+@media (min-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.card {
+  border-radius: 40px;
+  padding: 2.5rem;
+  padding-top: 8rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+}
+.card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.card:hover .imageWrapper img {
+  transform: scale(1.08) rotate(3deg);
+}
+.card .imageWrapper {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  z-index: 2;
+}
+.card .imageWrapper img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: drop-shadow(0 20px 15px rgba(0, 0, 0, 0.2));
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.card .cardContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.card .cardContent .subtitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.8rem;
+  margin-bottom: -5px;
+  opacity: 0.9;
+}
+.card .cardContent .title {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.card .cardContent .exploreBtn {
+  margin-top: auto;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* THEMES */
+.themeLight {
+  background-color: #ffffff;
+}
+.themeLight .subtitle, .themeLight .title {
+  color: #3E2312;
+}
+.themeLight .exploreBtn {
+  background-color: #F0F0F2;
+  color: #3E2312;
+}
+.themeLight .exploreBtn:hover {
+  background-color: #F5B041;
+  color: #fff;
+}
+
+.themeOrange {
+  background-color: #F5B041;
+}
+.themeOrange .subtitle, .themeOrange .title {
+  color: #3E2312;
+}
+.themeOrange .exploreBtn {
+  background-color: #ffffff;
+  color: #3E2312;
+}
+.themeOrange .exploreBtn:hover {
+  background-color: #3E2312;
+  color: #fff;
+}
+
+.themeDark {
+  background-color: #3E2312;
+}
+.themeDark .subtitle {
+  color: #F5B041;
+}
+.themeDark .title {
+  color: #ffffff;
+}
+.themeDark .exploreBtn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.themeDark .exploreBtn:hover {
+  background-color: #F5B041;
+  color: #3E2312;
+}/*# sourceMappingURL=ExploreMenu.module.css.map */

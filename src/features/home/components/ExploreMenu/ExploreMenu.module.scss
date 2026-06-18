@@ -1,0 +1,167 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.exploreSection {
+  background-color: #DED9DF; // Matches the bottom wave of MenuSlider
+  padding: 4rem 0 8rem 0; // Reduced top padding to fix the huge gap
+  position: relative;
+  z-index: 10;
+}
+
+.exploreContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem; // Space between header and cards
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .scriptText {
+    font-family: $font-cursive;
+    font-size: 3.5rem;
+    color: $color-dark-brown;
+    display: block;
+    line-height: 0.8;
+    margin-bottom: -5px;
+    transform: rotate(-2deg);
+  }
+
+  .heavyText {
+    font-family: $font-heavy;
+    font-size: 4.5rem;
+    color: $color-dark-brown;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .subText {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+/* --- THE CLEAN CARDS GRID --- */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr; // Mobile: Ek ke neeche ek
+  gap: 6rem 2rem; // Huge row gap for overlapping images on mobile
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include laptop {
+    grid-template-columns: repeat(3, 1fr); // Desktop: 3 perfect columns
+    gap: 2rem; // Normal gap on desktop
+  }
+}
+
+.card {
+  border-radius: 40px;
+  padding: 2.5rem;
+  padding-top: 8rem; // Creates space inside the card for the overlapping image
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+
+  &:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    .imageWrapper img {
+      transform: scale(1.08) rotate(3deg); // Premium hover pop
+    }
+  }
+
+  .imageWrapper {
+    position: absolute;
+    top: -80px; // Image pulls out of the top of the card
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 15px rgba(0,0,0,0.2));
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+  }
+
+  .cardContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    .subtitle {
+      font-family: $font-cursive;
+      font-size: 1.8rem;
+      margin-bottom: -5px;
+      opacity: 0.9;
+    }
+
+    .title {
+      font-family: $font-heavy;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .exploreBtn {
+      margin-top: auto;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      @include flex-center;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+  }
+}
+
+/* THEMES */
+.themeLight {
+  background-color: #ffffff;
+  .subtitle, .title { color: $color-dark-brown; }
+  .exploreBtn {
+    background-color: $color-bg-grey;
+    color: $color-dark-brown;
+    &:hover { background-color: $color-orange; color: #fff; }
+  }
+}
+
+.themeOrange {
+  background-color: $color-orange;
+  .subtitle, .title { color: $color-dark-brown; }
+  .exploreBtn {
+    background-color: #ffffff;
+    color: $color-dark-brown;
+    &:hover { background-color: $color-dark-brown; color: #fff; }
+  }
+}
+
+.themeDark {
+  background-color: $color-dark-brown;
+  .subtitle { color: $color-orange; }
+  .title { color: #ffffff; }
+  .exploreBtn {
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+    &:hover { background-color: $color-orange; color: $color-dark-brown; }
+  }
+}
+

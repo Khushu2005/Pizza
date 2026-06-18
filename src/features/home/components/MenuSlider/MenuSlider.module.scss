@@ -1,0 +1,190 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+/* --- MAGIC FIX FOR WHITE SPACE --- */
+.scrollSection {
+  height: 200vh; /* Mobile pe scroll chota rakha hai taaki white space na aaye */
+  
+  @include laptop {
+    height: 300vh; /* Desktop pe wapas normal taaki smooth slide mile */
+  }
+  background-color: #ffffff; 
+  position: relative;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh; 
+  width: 100%;
+  overflow: hidden; 
+  display: flex;
+  align-items: center; 
+  background-color: #ffffff; 
+  z-index: 5;
+}
+
+.horizontalTrack {
+  display: flex;
+  gap: 2rem; /* Mobile gap */
+  padding-left: 5vw; 
+  width: max-content;
+
+  @include laptop {
+    gap: 4rem; /* Desktop gap */
+    padding-left: 10vw;
+  }
+}
+
+/* --- THE CARDS --- */
+.card {
+  min-width: 300px; 
+  max-width: 300px;
+  border-radius: 50px 50px 25px 25px; 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem 2.5rem 1.5rem;
+  transition: transform 0.3s ease;
+
+  @include laptop {
+    min-width: 320px;
+    max-width: 320px;
+    padding: 0 2rem 2.5rem 2rem;
+  }
+
+  &:hover { transform: translateY(-5px); }
+
+  &.cardLight {
+    background-color: #E6E6EB; 
+    .priceTag { background-color: #ffffff; color: $color-dark-brown; }
+    .orderBtn { background-color: $color-orange; color: $color-dark-brown; }
+    .exploreText { color: $color-orange; }
+  }
+
+  &.cardOrange {
+    background-color: $color-orange; 
+    .priceTag { background-color: #ffffff; color: $color-dark-brown; }
+    .scriptTitle, .heavyTitle, .ingredients { color: $color-dark-brown; }
+    .orderBtn { background-color: #ffffff; color: $color-dark-brown; }
+    .exploreText { color: #ffffff; }
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -60px; 
+    margin-bottom: 1.5rem;
+
+    @include laptop { margin-top: -70px; }
+
+    .pizzaImg {
+      width: 200px; 
+      height: 200px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 15px rgba(0,0,0,0.25));
+      @include laptop { width: 220px; height: 220px; }
+    }
+
+    .priceTag {
+      position: absolute;
+      bottom: 25px;
+      right: -15px; 
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      @include flex-center;
+      flex-direction: column;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+      transform: rotate(10deg);
+      @include laptop { width: 90px; height: 90px; }
+
+      .priceLabel { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: -2px;}
+      .priceValue { font-size: 1.15rem; font-weight: 900; line-height: 1; @include laptop { font-size: 1.25rem; } }
+      .oldPrice { font-size: 0.6rem; text-decoration: line-through; opacity: 0.7; }
+    }
+  }
+
+  .cardContent {
+    text-align: left;
+    width: 100%;
+
+    .titleGroup {
+      margin-bottom: 0.5rem;
+      .scriptTitle { font-family: $font-cursive; font-size: 2rem; display: block; line-height: 0.8; margin-bottom: -5px; }
+      .heavyTitle { font-family: $font-heavy; font-size: 2.2rem; font-weight: 900; line-height: 1; }
+      @include laptop { .scriptTitle { font-size: 2.2rem; } .heavyTitle { font-size: 2.5rem; } }
+    }
+
+    .ingredients {
+      font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem;
+      color: rgba(62, 35, 18, 0.85); min-height: 50px; 
+      @include laptop { font-size: 0.9rem; }
+    }
+
+    .orderBtn {
+      width: 100%; padding: 0.9rem 0; border-radius: 50px;
+      font-family: $font-heavy; font-weight: 800; font-size: 0.9rem;
+      border: none; cursor: pointer; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      &:hover { transform: scale(1.03); }
+    }
+
+    .exploreText {
+      margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 5px;
+      font-size: 0.85rem; font-family: $font-heavy; text-transform: uppercase; letter-spacing: 1px;
+      cursor: pointer; transition: $transition-smooth;
+      &:hover { opacity: 0.7; transform: translateX(3px); }
+    }
+  }
+}
+
+/* --- BOTTOM WAVE --- */
+.bottomWave {
+  position: absolute; bottom: -2px; left: 0;
+  width: 200vw; height: 120px; z-index: 15; pointer-events: none;
+  svg { width: 100%; height: 100%; display: block; }
+}
+
+/* --- MODAL POPUP STYLES --- */
+.overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px);
+  z-index: 9999; @include flex-center; padding: 1rem;
+}
+
+.modal {
+  background: #ffffff; padding: 2.5rem 2rem; border-radius: 30px;
+  width: 100%; max-width: 380px; text-align: center; position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+
+  .closeBtn {
+    position: absolute; top: 20px; right: 20px; background: #f0f0f0;
+    width: 35px; height: 35px; border-radius: 50%; @include flex-center;
+    font-size: 1.2rem; color: $color-dark-brown; border: none; cursor: pointer; transition: $transition-smooth;
+    &:hover { background: $color-orange; color: #fff; transform: rotate(90deg); }
+  }
+
+  h3 { font-family: $font-heavy; font-size: 2.2rem; color: $color-dark-brown; margin-bottom: 0.2rem; line-height: 1; }
+  .modalSub { font-family: $font-cursive; font-size: 1.5rem; color: $color-orange; margin-bottom: 2rem; }
+
+  .sizeOptions { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+
+  .sizeCard {
+    display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem;
+    border: 2px solid #E6E6EB; border-radius: 15px; color: $color-dark-brown; cursor: pointer; transition: $transition-smooth;
+    &:hover { border-color: $color-orange; background-color: rgba(245, 176, 65, 0.1); transform: scale(1.02); }
+    span { font-weight: 600; font-size: 1.1rem; }
+    b { font-family: $font-heavy; font-size: 1.4rem; }
+  }
+
+  .callBtn {
+    width: 100%; padding: 1.1rem; background: $color-dark-brown; color: #ffffff; border-radius: 50px;
+    font-family: $font-heavy; font-weight: 800; font-size: 1rem; display: flex; justify-content: center; align-items: center; gap: 10px;
+    border: none; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 10px 20px rgba(62, 35, 18, 0.3);
+    &:hover { background: $color-orange; color: $color-dark-brown; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(245, 176, 65, 0.4); }
+  }
+}

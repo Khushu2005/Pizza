@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: #F0F0F2;
+  color: #2C2C2C;
+  -webkit-font-smoothing: antialiased;
+  /* CRITICAL FIX: hidden hata ke clip kiya taaki sticky poorani files me break na ho */
+  overflow-x: clip;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}/*# sourceMappingURL=globals.css.map */

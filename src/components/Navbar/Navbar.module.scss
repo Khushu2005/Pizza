@@ -1,0 +1,130 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.navbar {
+  position: absolute; // Transparent over the hero section
+  top: -1rem;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0;
+  z-index: 100;
+  background: transparent;
+  display: flex;
+  justify-content: center; // Centers the entire navbar content
+
+  .navContainer {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: rgba(255, 255, 255, 0.4); // Super light aesthetic glass effect
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  }
+
+  .desktopLinks {
+    display: none; 
+    list-style: none;
+    gap: 2.5rem;
+
+    @include tablet {
+      display: flex; 
+    }
+
+    li a {
+      color: $color-text-main;
+      font-weight: 400; // Removed bold as requested
+      font-size: 1.1rem;
+      transition: $transition-smooth;
+
+      &:hover {
+        color: #D35400; // Darker orange hover
+      }
+    }
+  }
+
+  .navRight {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .searchBar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2); // Glass effect
+  border: 1px solid rgba(255, 255, 255, 0.3); // Aesthetic border
+  border-radius: 50px;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    background: rgba(255, 255, 255, 0.4); // Focus pe thoda opaque
+  }
+  
+  input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $color-text-main;
+    width: 120px;
+    
+    &::placeholder { color: rgba(0,0,0,0.5); }
+  }
+
+  .searchIcon {
+    color: $color-dark-brown; // Search icon color
+    cursor: pointer;
+  }
+}
+
+.hamburgerBtn {
+  display: block; 
+  color: $color-dark-brown;
+  font-size: 1.8rem; // Chef hat size
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: rotate(15deg); // Little interactive touch
+  }
+  
+  @include tablet { display: none; }
+}}
+
+// ... Mobile Menu styles remain same as before ...
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 200;
+  padding: 1.5rem;
+  
+  .menuHeader {
+    @include flex-between;
+    margin-bottom: 3rem;
+    
+    .closeBtn {
+      font-size: 2rem;
+      color: $color-text-main;
+    }
+  }
+
+  .menuLinks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+
+    li a {
+      color: $color-text-main;
+      font-size: 2rem;
+      font-family: $font-heading;
+    }
+  }
+}

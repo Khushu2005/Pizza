@@ -1,0 +1,304 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.locationSection {
+  background-color: $color-bg-grey; 
+  position: relative;
+  /* Mobile ke liye padding kam ki */
+  padding: 6rem 0 5rem 0; 
+  z-index: 10;
+
+  @include laptop {
+    padding: 10rem 0 8rem 0;
+  }
+}
+
+.topWave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  line-height: 0;
+  z-index: 2;
+
+  svg { display: block; width: 100%; height: 100%; }
+  @include laptop { height: 120px; }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem; /* Mobile gap kam kiya */
+
+  @include laptop { gap: 7rem; }
+}
+
+/* --- PART 1: AESTHETIC LOCATION GRID --- */
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem; 
+  
+  @include laptop {
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+  }
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+  .scriptText {
+    font-family: $font-cursive;
+    font-size: 2.5rem; /* Mobile ke liye chota */
+    color: $color-orange;
+    line-height: 0.8;
+    margin-bottom: -5px;
+    transform: rotate(-2deg);
+
+    @include tablet { font-size: 3rem; }
+    @include laptop { font-size: 3.5rem; }
+  }
+
+  .heavyText {
+    font-family: $font-heavy;
+    font-size: 3.2rem; /* Yahan magic hai, ab word tootega nahi */
+    font-weight: 900;
+    line-height: 1;
+    color: $color-dark-brown;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    word-wrap: break-word; /* Safety net */
+
+    @include tablet { font-size: 4rem; }
+    @include laptop { 
+      font-size: 5rem; 
+      margin-bottom: 3.5rem; 
+      letter-spacing: -2px; 
+    }
+  }
+
+  .editorialBlock {
+    margin-bottom: 2rem;
+    border-left: 3px solid $color-orange;
+    padding-left: 1.2rem;
+
+    @include laptop { margin-bottom: 2.5rem; padding-left: 1.5rem; }
+
+    .cityText {
+      font-family: $font-heavy;
+      font-size: 1rem;
+      color: $color-orange;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+
+      @include laptop { font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 0.8rem; }
+    }
+
+    .streetText {
+      font-size: 1rem;
+      color: $color-dark-brown;
+      line-height: 1.5;
+      font-weight: 500;
+
+      @include laptop { font-size: 1.2rem; line-height: 1.6; }
+    }
+
+    .hoursText {
+      font-size: 0.95rem;
+      color: $color-dark-brown;
+      line-height: 1.6;
+      
+      span {
+        display: inline-block;
+        width: 80px; 
+        font-weight: 700;
+        opacity: 0.8;
+
+        @include laptop { width: 100px; line-height: 1.8; }
+      }
+
+      @include laptop { font-size: 1.1rem; }
+    }
+  }
+}
+
+/* THE ARCHED WINDOW IMAGE */
+.imageCard {
+  width: 100%;
+  height: 350px; /* Mobile pe zyada lamba nahi chalega */
+  /* Arch shape bhi phone ke hisaab se choti ki */
+  border-radius: 150px 150px 20px 20px; 
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border: 4px solid #ffffff; 
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+
+    &:hover { transform: scale(1.08); }
+  }
+
+  @include tablet {
+    height: 450px;
+    border-radius: 200px 200px 20px 20px;
+    border: 6px solid #ffffff;
+  }
+
+  @include laptop {
+    height: 550px;
+    width: 90%;
+    margin-left: auto;
+    border-radius: 250px 250px 20px 20px; 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  }
+}
+
+/* --- PART 2: WAVY PROMO BANNER --- */
+.wavyPromoBanner {
+  background: $color-orange;
+  /* Mobile ke liye wave halki ki */
+  border-radius: 40px 15px 40px 15px; 
+  padding: 2rem 1.5rem; /* Padding shrink ki taaki text bahar na jaye */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  box-shadow: 0 15px 30px rgba(245, 176, 65, 0.2);
+
+  @include tablet {
+    padding: 3rem 2.5rem;
+    border-radius: 60px 20px 60px 20px; 
+    gap: 2.5rem;
+  }
+
+  @include laptop {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 4rem 5rem;
+    border-radius: 100px 30px 100px 30px; 
+    box-shadow: 0 25px 50px rgba(245, 176, 65, 0.2);
+  }
+
+  .promoContent {
+    max-width: 100%; 
+
+    @include laptop { max-width: 550px; }
+
+    .promoBadge {
+      display: inline-block;
+      background-color: $color-dark-brown;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+
+      @include laptop { font-size: 0.7rem; margin-bottom: 1.5rem; }
+    }
+
+    h3 {
+      font-family: $font-heavy;
+      font-size: 2rem; /* Mobile heading fit ho jayegi */
+      font-weight: 900;
+      color: $color-dark-brown;
+      margin-bottom: 0.8rem;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+
+      @include tablet { font-size: 2.4rem; }
+      @include laptop { font-size: 2.8rem; margin-bottom: 1rem; letter-spacing: -1px; line-height: 1; }
+    }
+
+    p {
+      font-size: 0.95rem; 
+      color: rgba(62, 35, 18, 0.85); 
+      line-height: 1.5;
+
+      @include tablet { font-size: 1.05rem; }
+      @include laptop { font-size: 1.1rem; line-height: 1.6; }
+
+      strong {
+        color: $color-dark-brown;
+        font-weight: 900;
+        border-bottom: 2px solid $color-dark-brown;
+      }
+    }
+  }
+
+  .actionButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+
+    @include tablet {
+      flex-direction: row;
+      width: auto;
+      gap: 1rem;
+    }
+
+    .actionBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.5rem; /* Buttons chote kiye */
+      border-radius: 50px;
+      font-family: $font-heavy;
+      font-weight: 800;
+      font-size: 0.85rem; 
+      letter-spacing: 1px;
+      transition: $transition-smooth;
+      border: none;
+      width: 100%;
+      
+      @include tablet { 
+        width: auto; 
+        padding: 1.1rem 2.5rem;
+        font-size: 0.95rem;
+        gap: 0.8rem;
+      }
+      
+      .btnIcon { font-size: 1.1rem; @include tablet { font-size: 1.3rem; } }
+    }
+
+    .whatsappBtn {
+      background-color: #25D366; 
+      color: #ffffff;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+
+      &:hover {
+        background-color: #1EBE5A;
+        transform: translateY(-4px);
+        box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
+      }
+    }
+
+    .callBtn {
+      background-color: $color-dark-brown; 
+      color: #ffffff;
+      box-shadow: 0 10px 20px rgba(62, 35, 18, 0.3);
+
+      &:hover {
+        background-color: #2A150C;
+        transform: translateY(-4px);
+        box-shadow: 0 15px 25px rgba(62, 35, 18, 0.4);
+      }
+    }
+  }
+}

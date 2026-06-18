@@ -1,0 +1,26 @@
+// Premium Light Palette
+$color-bg-main: #F4F4F2; 
+$color-bg-card: #FFFFFF;
+$color-text-main: #2C2C2C;
+$color-text-muted: #7A7A7A;
+
+// Brand Specific Theme Colors (From Image)
+$color-dark-brown: #3E2312; // Chocolate brown for text
+$color-bg-grey: #F0F0F2; // Page background
+$color-orange: #F5B041; // Badge and Button color
+$color-curve-bg: #EAE8EC; // Back curve color
+
+// Typography (Don't forget to link these in index.html)
+$font-heading: 'Playfair Display', serif;
+$font-primary: 'Outfit', sans-serif;
+$font-cursive: 'Dancing Script', cursive; // Added Cursive
+$font-heavy: 'Poppins', sans-serif; // Added Heavy Sans
+
+// UI Elements
+$border-radius-md: 16px;
+$border-radius-lg: 24px;
+$border-radius-xl: 40px;
+$border-radius-pill: 50px;
+
+$shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.04);
+$transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);

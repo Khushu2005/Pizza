@@ -1,0 +1,364 @@
+/* --- MAGIC FIX FOR WHITE SPACE --- */
+.scrollSection {
+  height: 200vh; /* Mobile pe scroll chota rakha hai taaki white space na aaye */
+}
+@media (min-width: 1024px) {
+  .scrollSection {
+    height: 300vh; /* Desktop pe wapas normal taaki smooth slide mile */
+  }
+}
+.scrollSection {
+  background-color: #ffffff;
+  position: relative;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  z-index: 5;
+}
+
+.horizontalTrack {
+  display: flex;
+  gap: 2rem; /* Mobile gap */
+  padding-left: 5vw;
+  width: -moz-max-content;
+  width: max-content;
+}
+@media (min-width: 1024px) {
+  .horizontalTrack {
+    gap: 4rem; /* Desktop gap */
+    padding-left: 10vw;
+  }
+}
+
+/* --- THE CARDS --- */
+.card {
+  min-width: 300px;
+  max-width: 300px;
+  border-radius: 50px 50px 25px 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem 2.5rem 1.5rem;
+  transition: transform 0.3s ease;
+}
+@media (min-width: 1024px) {
+  .card {
+    min-width: 320px;
+    max-width: 320px;
+    padding: 0 2rem 2.5rem 2rem;
+  }
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card.cardLight {
+  background-color: #E6E6EB;
+}
+.card.cardLight .priceTag {
+  background-color: #ffffff;
+  color: #3E2312;
+}
+.card.cardLight .orderBtn {
+  background-color: #F5B041;
+  color: #3E2312;
+}
+.card.cardLight .exploreText {
+  color: #F5B041;
+}
+.card.cardOrange {
+  background-color: #F5B041;
+}
+.card.cardOrange .priceTag {
+  background-color: #ffffff;
+  color: #3E2312;
+}
+.card.cardOrange .scriptTitle, .card.cardOrange .heavyTitle, .card.cardOrange .ingredients {
+  color: #3E2312;
+}
+.card.cardOrange .orderBtn {
+  background-color: #ffffff;
+  color: #3E2312;
+}
+.card.cardOrange .exploreText {
+  color: #ffffff;
+}
+.card .imageContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -60px;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .card .imageContainer {
+    margin-top: -70px;
+  }
+}
+.card .imageContainer .pizzaImg {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: drop-shadow(0 20px 15px rgba(0, 0, 0, 0.25));
+}
+@media (min-width: 1024px) {
+  .card .imageContainer .pizzaImg {
+    width: 220px;
+    height: 220px;
+  }
+}
+.card .imageContainer .priceTag {
+  position: absolute;
+  bottom: 25px;
+  right: -15px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transform: rotate(10deg);
+}
+@media (min-width: 1024px) {
+  .card .imageContainer .priceTag {
+    width: 90px;
+    height: 90px;
+  }
+}
+.card .imageContainer .priceTag .priceLabel {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: -2px;
+}
+.card .imageContainer .priceTag .priceValue {
+  font-size: 1.15rem;
+  font-weight: 900;
+  line-height: 1;
+}
+@media (min-width: 1024px) {
+  .card .imageContainer .priceTag .priceValue {
+    font-size: 1.25rem;
+  }
+}
+.card .imageContainer .priceTag .oldPrice {
+  font-size: 0.6rem;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+.card .cardContent {
+  text-align: left;
+  width: 100%;
+}
+.card .cardContent .titleGroup {
+  margin-bottom: 0.5rem;
+}
+.card .cardContent .titleGroup .scriptTitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  display: block;
+  line-height: 0.8;
+  margin-bottom: -5px;
+}
+.card .cardContent .titleGroup .heavyTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+@media (min-width: 1024px) {
+  .card .cardContent .titleGroup .scriptTitle {
+    font-size: 2.2rem;
+  }
+  .card .cardContent .titleGroup .heavyTitle {
+    font-size: 2.5rem;
+  }
+}
+.card .cardContent .ingredients {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: rgba(62, 35, 18, 0.85);
+  min-height: 50px;
+}
+@media (min-width: 1024px) {
+  .card .cardContent .ingredients {
+    font-size: 0.9rem;
+  }
+}
+.card .cardContent .orderBtn {
+  width: 100%;
+  padding: 0.9rem 0;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.card .cardContent .orderBtn:hover {
+  transform: scale(1.03);
+}
+.card .cardContent .exploreText {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.card .cardContent .exploreText:hover {
+  opacity: 0.7;
+  transform: translateX(3px);
+}
+
+/* --- BOTTOM WAVE --- */
+.bottomWave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 200vw;
+  height: 120px;
+  z-index: 15;
+  pointer-events: none;
+}
+.bottomWave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* --- MODAL POPUP STYLES --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+.modal .closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f0f0f0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #3E2312;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.modal .closeBtn:hover {
+  background: #F5B041;
+  color: #fff;
+  transform: rotate(90deg);
+}
+.modal h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  color: #3E2312;
+  margin-bottom: 0.2rem;
+  line-height: 1;
+}
+.modal .modalSub {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  color: #F5B041;
+  margin-bottom: 2rem;
+}
+.modal .sizeOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.modal .sizeCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border: 2px solid #E6E6EB;
+  border-radius: 15px;
+  color: #3E2312;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.modal .sizeCard:hover {
+  border-color: #F5B041;
+  background-color: rgba(245, 176, 65, 0.1);
+  transform: scale(1.02);
+}
+.modal .sizeCard span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.modal .sizeCard b {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+}
+.modal .callBtn {
+  width: 100%;
+  padding: 1.1rem;
+  background: #3E2312;
+  color: #ffffff;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(62, 35, 18, 0.3);
+}
+.modal .callBtn:hover {
+  background: #F5B041;
+  color: #3E2312;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(245, 176, 65, 0.4);
+}/*# sourceMappingURL=MenuSlider.module.css.map */

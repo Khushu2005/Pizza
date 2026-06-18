@@ -1,0 +1,121 @@
+.navbar {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0;
+  z-index: 100;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+}
+.navbar .navContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+.navbar .desktopLinks {
+  display: none;
+  list-style: none;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .navbar .desktopLinks {
+    display: flex;
+  }
+}
+.navbar .desktopLinks li a {
+  color: #2C2C2C;
+  font-weight: 400;
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.navbar .desktopLinks li a:hover {
+  color: #D35400;
+}
+.navbar .navRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.navbar .searchBar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.3s ease;
+}
+.navbar .searchBar:focus-within {
+  background: rgba(255, 255, 255, 0.4);
+}
+.navbar .searchBar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #2C2C2C;
+  width: 120px;
+}
+.navbar .searchBar input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.navbar .searchBar input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.navbar .searchBar .searchIcon {
+  color: #3E2312;
+  cursor: pointer;
+}
+.navbar .hamburgerBtn {
+  display: block;
+  color: #3E2312;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+.navbar .hamburgerBtn:hover {
+  transform: rotate(15deg);
+}
+@media (min-width: 768px) {
+  .navbar .hamburgerBtn {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 200;
+  padding: 1.5rem;
+}
+.mobileMenu .menuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+.mobileMenu .menuHeader .closeBtn {
+  font-size: 2rem;
+  color: #2C2C2C;
+}
+.mobileMenu .menuLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.mobileMenu .menuLinks li a {
+  color: #2C2C2C;
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
+}/*# sourceMappingURL=Navbar.module.css.map */
