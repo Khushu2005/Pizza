@@ -38,18 +38,24 @@ const ArtOfPizza = () => {
       <div className={styles.splitContainer}>
         
         {/* LEFT SIDE: The Mathematically Cut Pizza */}
-        <div className={styles.leftCol}>
-          <motion.img 
-            /* Transparent premium pizza */
-            src={pizzaArt} 
-            alt="Authentic Pizza" 
-            className={styles.halfPizza}
-            variants={slideInPizza}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          />
-        </div>
+       <div className={styles.leftCol}>
+  <motion.img 
+    src={pizzaArt} 
+    alt="Authentic Pizza" 
+    className={styles.halfPizza}
+    variants={slideInPizza}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
+    // YAHAN STYLE ADD KAR:
+    style={{ 
+       width: '100%', 
+       height: 'auto', 
+       maxWidth: '500px', // Mobile pe max size
+       display: 'block' 
+    }}
+  />
+</div>
 
         {/* RIGHT SIDE: Massive Typography (Burger Image Style) */}
         <div className={styles.rightCol}>

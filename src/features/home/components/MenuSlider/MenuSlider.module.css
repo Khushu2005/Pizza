@@ -27,7 +27,7 @@
 .horizontalTrack {
   display: flex;
   gap: 2rem; /* Mobile gap */
-  padding-left: 5vw;
+  padding-left: 6vw;
   width: -moz-max-content;
   width: max-content;
 }
@@ -61,7 +61,7 @@
   transform: translateY(-5px);
 }
 .card.cardLight {
-  background-color: #E6E6EB;
+  background-color: #e6e6eb;
 }
 .card.cardLight .priceTag {
   background-color: #ffffff;
@@ -81,7 +81,9 @@
   background-color: #ffffff;
   color: #3E2312;
 }
-.card.cardOrange .scriptTitle, .card.cardOrange .heavyTitle, .card.cardOrange .ingredients {
+.card.cardOrange .scriptTitle,
+.card.cardOrange .heavyTitle,
+.card.cardOrange .ingredients {
   color: #3E2312;
 }
 .card.cardOrange .orderBtn {
@@ -319,7 +321,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  border: 2px solid #E6E6EB;
+  border: 2px solid #e6e6eb;
   border-radius: 15px;
   color: #3E2312;
   cursor: pointer;

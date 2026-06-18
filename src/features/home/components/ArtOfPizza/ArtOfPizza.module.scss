@@ -67,8 +67,8 @@
   @include laptop {
     /* Desktop pe right edge pe aake center hoga, jisse aadha kat jayega */
     right: 0;
-    width: 120%; /* Huge size */
-    max-width: 900px; /* Big enough to look massive */
+    width: 120% !important;  /* Huge size */
+    max-width: 760px !important; /* Big enough to look massive */
   }
 }
 
@@ -274,5 +274,21 @@
         box-shadow: 0 15px 25px rgba(58, 31, 18, 0.4); 
       }
     }
+  }
+}
+
+
+/* Mobile ke liye force full visibility */
+@media (max-width: 453px) {
+  .leftCol {
+    overflow: visible !important;
+  }
+  .halfPizza {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 80% !important;
+    margin: 0 auto !important;
   }
 }

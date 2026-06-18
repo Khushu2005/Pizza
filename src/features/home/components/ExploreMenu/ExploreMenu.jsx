@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom'; // <--- IMPORT NAVIGATE
+import { useNavigate } from 'react-router-dom'; 
 import styles from './ExploreMenu.module.scss';
 import { FiArrowRight } from 'react-icons/fi';
 import burger from '../../../../assets/images/burger.webp';
@@ -15,7 +15,7 @@ const categories = [
 
 const ExploreMenu = () => {
   const navigate = useNavigate(); // <--- NAVIGATE HOOK
-
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
