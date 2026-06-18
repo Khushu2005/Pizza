@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom'; // <--- IMPORT NAVIGATE
 import styles from './ExploreMenu.module.scss';
 import { FiArrowRight } from 'react-icons/fi';
-import burger from '../../../../assets/images/burger.png';
-import pasta from '../../../../assets/images/pasta.png';
-import shake from '../../../../assets/images/shake.png';
+import burger from '../../../../assets/images/burger.webp';
+import pasta from '../../../../assets/images/pasta.webp';
+import shake from '../../../../assets/images/shake.webp';
 
 const categories = [
   { id: 1, title: "Gourmet Burgers", subtitle: "Juicy & Fresh", img: burger, theme: "light", category: "Burger" },

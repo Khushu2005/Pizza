@@ -14,11 +14,12 @@ import ArtOfPizza from './components/ArtOfPizza/ArtOfPizza';
 import LocationOffer from './components/LocationOffer/LocationOffer';
 
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa'; 
-import tomato from '../../assets/images/tomatos.png';
-import basil from '../../assets/images/chili-basil.png';
-import sauce from '../../assets/images/sauce.png';
-import basilLeaf from '../../assets/images/basil.png';
-import sauce2 from '../../assets/images/sauce2.png';
+import tomato from '../../assets/images/tomatos.webp';
+import basil from '../../assets/images/chili-basil.webp';
+import sauce from '../../assets/images/sauce.webp';
+import basilLeaf from '../../assets/images/basil.webp';
+import sauce2 from '../../assets/images/sauce2.webp';
+import pizzaart from '../../assets/images/pizzaart.webp';
 
 const Home = () => {
   const navigate = useNavigate(); // <--- INITIALIZE NAVIGATE
@@ -49,7 +50,7 @@ const Home = () => {
           
           <motion.div className={styles.imageCol} variants={leftSlide} initial="hidden" animate="visible">
             <div className={styles.imageWrapper}>
-              <img className={styles.mainPizza} src="https://freepngimg.com/thumb/pizza/35-pizza-png-image.png" alt="Wood Fired Pizza" />
+              <img className={styles.mainPizza} src={pizzaart} alt="Wood Fired Pizza" />
               <img className={`${styles.scatterItem} ${styles.pos1}`} src={tomato} alt="Tomato" />
               <img className={`${styles.scatterItem} ${styles.pos2}`} src={basil} alt="Chilli" />
               <img className={`${styles.scatterItem} ${styles.pos3}`} src={sauce} alt="Dip" />
