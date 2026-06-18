@@ -23,6 +23,7 @@
   display: none;
   list-style: none;
   gap: 2.5rem;
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   .navbar .desktopLinks {
