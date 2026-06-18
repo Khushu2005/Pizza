@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate, useLocation } from 'react-router-dom'; // <--- IMPORT THIS
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FiMenu, FiX, FiSearch } from 'react-icons/fi';
 import { PiChefHatFill } from 'react-icons/pi'; 
 
 import styles from './Navbar.module.scss';
+import { handleSearch } from '../../utils/search'; // Tere search utils se import
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(''); // Search state
   const navigate = useNavigate();
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // SECTION SCROLL FUNCTION
+  // Search trigger logic
+  const onSearchSubmit = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch(searchQuery);
+    }
+  };
+
+  // Smooth scroll logic for sections
   const handleScroll = (id) => {
     setIsOpen(false);
     if (location.pathname !== '/') {
@@ -36,6 +45,7 @@ const Navbar = () => {
       <nav className={styles.navbar}>
         <div className={styles.navContainer}>
           
+          {/* Desktop Links */}
           <motion.ul className={styles.desktopLinks} variants={navVariants} initial="hidden" animate="visible">
             <motion.li variants={linkVariants}><a onClick={() => navigate('/')}>Home</a></motion.li>
             <motion.li variants={linkVariants}><a onClick={() => navigate('/menu')}>Menu</a></motion.li>
@@ -43,10 +53,17 @@ const Navbar = () => {
             <motion.li variants={linkVariants}><a onClick={() => handleScroll('contact')}>Contact</a></motion.li>
           </motion.ul>
 
+          {/* Search & Mobile Toggle */}
           <motion.div className={styles.navRight} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
             <div className={styles.searchBar}>
-              <input type="text" placeholder="Explore tastes..." />
-              <FiSearch className={styles.searchIcon} />
+              <input 
+                type="text" 
+                placeholder="Explore tastes..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={onSearchSubmit}
+              />
+              <FiSearch className={styles.searchIcon} onClick={() => handleSearch(searchQuery)} />
             </div>
             <button className={styles.hamburgerBtn} onClick={toggleMenu}>
               <PiChefHatFill />
@@ -55,6 +72,7 @@ const Navbar = () => {
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div className={styles.mobileMenu} initial={{ opacity: 0, y: '-100%' }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: '-100%' }} transition={{ duration: 0.4, ease: "easeInOut" }}>

@@ -1,4 +1,4 @@
-export const openWhatsApp = (message = "Hello, I want to place a pizza order.", phone = "919999999999") => {
+export const openWhatsApp = (message = "Hello, I want to place a pizza order.", phone = "919696554681") => {
   const encodedMessage = encodeURIComponent(message);
   window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 };

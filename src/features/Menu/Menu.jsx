@@ -80,11 +80,24 @@ const MenuCard = ({ item }) => {
 const Menu = () => {
   const [searchParams] = useSearchParams();
   const categoryFromUrl = searchParams.get("category") || "All";
+  const searchFromUrl = searchParams.get("search") || ""; // Search query capture ki
+  
   const [activeTab, setActiveTab] = useState(categoryFromUrl);
 
-  const filteredMenu = activeTab === "All" 
-    ? menuData 
-    : menuData.filter(item => item.category === activeTab);
+  // Yahan filter logic update kar diya:
+ // --- UPDATED FILTER LOGIC ---
+  const filteredMenu = menuData.filter(item => {
+    // 1. Category match check karo
+    const matchesCategory = activeTab === "All" || item.category === activeTab;
+    
+    // 2. FIX: Name, Category, aur Description teeno mein search keyword dhoondho!
+    const matchesSearch = 
+      item.name.toLowerCase().includes(searchFromUrl.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchFromUrl.toLowerCase()) ||
+      item.desc.toLowerCase().includes(searchFromUrl.toLowerCase());
+      
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className={styles.menuPageWrapper}>
