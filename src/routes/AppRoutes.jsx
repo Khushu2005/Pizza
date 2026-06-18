@@ -4,11 +4,13 @@ import HomePage from '../pages/HomePage';
 import Menu from '../features/Menu/Menu';
 
 
+
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/menu" element={<Menu />} />
+  
     </Routes>
   );
 };

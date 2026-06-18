@@ -1,9 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ArtOfPizza.module.scss';
 import pizzaArt from '../../../../assets/images/pizzaart.webp';
+import { FiX, FiPhoneCall, FiMapPin, FiUsers, FiClock } from 'react-icons/fi';
+import { makeCall } from '../../../../services/call'; // Tera call function
 
 const ArtOfPizza = () => {
+  // POPUP STATE
+  const [isStoryOpen, setIsStoryOpen] = useState(false);
+
   // Animations for a premium entry
   const slideInPizza = {
     hidden: { opacity: 0, x: -100, y: '-50%' },
@@ -70,12 +75,61 @@ const ArtOfPizza = () => {
             </motion.p>
             
             <motion.div variants={textStagger}>
-              <button className={styles.ctaBtn}>READ OUR STORY</button>
+              {/* Button pe onClick Popup laga diya */}
+              <button className={styles.ctaBtn} onClick={() => setIsStoryOpen(true)}>
+                READ OUR STORY
+              </button>
             </motion.div>
           </motion.div>
         </div>
 
       </div>
+
+      {/* --- AESTHETIC STORY POPUP --- */}
+      <AnimatePresence>
+        {isStoryOpen && (
+          <motion.div className={styles.storyOverlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsStoryOpen(false)}>
+            <motion.div className={styles.storyModal} initial={{ y: 50, scale: 0.9, opacity: 0 }} animate={{ y: 0, scale: 1, opacity: 1 }} exit={{ y: 50, scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
+              
+              <button className={styles.closeBtn} onClick={() => setIsStoryOpen(false)}>
+                <FiX />
+              </button>
+
+              <h3 className={styles.cursiveTitle}>Our Story</h3>
+              <p className={styles.storyText}>
+                Started in a small backyard oven back in 2018, our obsession with the perfect crust grew into a passion. Today, our family of bakers crafts every pizza with love, proofing dough for 48 hours for that authentic bite.
+              </p>
+
+              <div className={styles.statsRow}>
+                <div className={styles.stat}>
+                  <FiClock />
+                  <strong>2018</strong>
+                  <span>Est.</span>
+                </div>
+                <div className={styles.stat}>
+                  <FiUsers />
+                  <strong>45+</strong>
+                  <span>Artisans</span>
+                </div>
+                <div className={styles.stat}>
+                  <span>🍕</span>
+                  <strong>1M+</strong>
+                  <span>Baked</span>
+                </div>
+              </div>
+
+              <div className={styles.contactInfo}>
+                <p><FiMapPin /> 123 Crust Avenue, ND 110001</p>
+                <button className={styles.callBtn} onClick={() => makeCall()}>
+                  <FiPhoneCall /> DIAL TO ORDER
+                </button>
+              </div>
+
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </section>
   );
 };
