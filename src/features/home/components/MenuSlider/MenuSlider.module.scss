@@ -27,12 +27,16 @@
 .horizontalTrack {
   display: flex;
   gap: 2rem; /* Mobile gap */
-  padding-left: 6vw;
+  padding-left: 2vw;
   width: max-content;
+  padding-right: 2rem;
 
   @include laptop {
-    gap: 4rem; /* Desktop gap */
-    padding-left: 10vw;
+    // gap: 4rem; /* Desktop gap */
+    // padding-left: 10vw;
+    gap: 3rem; 
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
 
