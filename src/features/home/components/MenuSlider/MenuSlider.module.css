@@ -4,7 +4,7 @@
 }
 @media (min-width: 1024px) {
   .scrollSection {
-    height: 200vh; /* Desktop pe wapas normal taaki smooth slide mile */
+    height: 220vh; /* Desktop pe wapas normal taaki smooth slide mile */
   }
 }
 .scrollSection {
@@ -31,6 +31,8 @@
   width: -moz-max-content;
   width: max-content;
   padding-right: 2rem;
+  will-change: transform; /* Browser ko advance me batata hai ki slide hoga */
+  backface-visibility: hidden;
 }
 @media (min-width: 1024px) {
   .horizontalTrack {

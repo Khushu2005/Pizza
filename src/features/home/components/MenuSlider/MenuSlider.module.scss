@@ -6,7 +6,7 @@
   height: 200vh; /* Mobile pe scroll chota rakha hai taaki white space na aaye */
 
   @include laptop {
-    height: 200vh; /* Desktop pe wapas normal taaki smooth slide mile */
+    height: 220vh; /* Desktop pe wapas normal taaki smooth slide mile */
   }
   background-color: #ffffff;
   position: relative;
@@ -30,6 +30,8 @@
   padding-left: 2vw;
   width: max-content;
   padding-right: 2rem;
+  will-change: transform;       /* Browser ko advance me batata hai ki slide hoga */
+  backface-visibility: hidden;
 
   @include laptop {
     // gap: 4rem; /* Desktop gap */
