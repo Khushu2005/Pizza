@@ -4,7 +4,7 @@
 }
 @media (min-width: 1024px) {
   .scrollSection {
-    height: 300vh; /* Desktop pe wapas normal taaki smooth slide mile */
+    height: 200vh; /* Desktop pe wapas normal taaki smooth slide mile */
   }
 }
 .scrollSection {
@@ -34,6 +34,7 @@
 }
 @media (min-width: 1024px) {
   .horizontalTrack {
+    width: 35%;
     gap: 3rem;
     padding-left: 5rem;
     padding-right: 5rem;
