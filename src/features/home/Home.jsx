@@ -31,14 +31,32 @@ const Home = () => {
     price: "299"
   };
 
+  // const leftSlide = {
+  //   hidden: { opacity: 0, x: -80 },
+  //   visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.25, 1, 0.5, 1] } }
+  // };
+
+  // const rightSlide = {
+  //   hidden: { opacity: 0, x: 80 },
+  //   visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.2 } }
+  // };
+  // --- Yahan transition smooth kar diya hai ---
   const leftSlide = {
     hidden: { opacity: 0, x: -80 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.25, 1, 0.5, 1] } }
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1] } // Buttery smooth ease
+    }
   };
 
   const rightSlide = {
     hidden: { opacity: 0, x: 80 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.2 } }
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.15 } // Thoda kam delay
+    }
   };
 
   return (
