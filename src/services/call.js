@@ -1,3 +1,3 @@
-export const makeCall = (phone = "+919696554681") => {
+export const makeCall = (phone = "+9196961") => {
   window.location.href = `tel:${phone}`;
 };
